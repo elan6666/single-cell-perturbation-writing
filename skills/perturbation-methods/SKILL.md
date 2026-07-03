@@ -6,6 +6,8 @@ description: Write, rewrite, or review Methods for perturbation-prediction manus
 # Perturbation Methods
 
 Use after `perturbation-writing-core` and `perturbation-writing-corpus-guide`.
+For notation-heavy work, also consult
+`references/method-variable-scope.md`.
 
 ## Methods Job
 
@@ -61,6 +63,8 @@ We therefore formulate [task] as [modeling form]. Formally, let [symbols] denote
 
 ## Notation Rules
 
+- Define only variables that affect task understanding, model inputs and
+  outputs, core modules, training objectives, or reviewer-risk boundaries.
 - Define full vectors before scalar components.
 - Define sample sets before distributions over them.
 - Define indices and dimensions before matrix entries.
@@ -71,6 +75,48 @@ We therefore formulate [task] as [modeling form]. Formally, let [symbols] denote
   move definitions before the formula.
 - Use neutral training-expression notation for arbitrary VAE inputs; reserve
   control and perturbed symbols for actual control/perturbed cells.
+
+## Variable Scope Rules
+
+Problem Formulation should define only variables required for the reader to
+understand the task:
+
+- observed control and perturbed populations;
+- perturbation identity or condition;
+- condition or prior embedding if it is a model input;
+- prediction target;
+- conditional mapping or distribution;
+- unpaired-observation assumption.
+
+Module subsections should define variables needed by that module:
+
+- latent representations in encoder/latent-space sections;
+- coupling matrices or soft reference weights in OT/reference sections;
+- perturbation shifts in shift sections;
+- generator or decoder outputs in generation sections;
+- loss-specific variables in objective sections.
+
+Move these out of Problem Formulation unless they are part of the core task
+definition:
+
+- batch size, learning rate, hidden dimension, top-k value, epochs, seeds;
+- exact split ratios, normalization, HVG details;
+- baseline internals that are not modified;
+- standard MLP, encoder, decoder, LayerNorm, attention, softmax, or optimizer
+  details;
+- one-off local variables that appear in only one formula.
+
+## Baseline Variable Rule
+
+When describing baselines, define only what matters for comparison:
+
+- what inputs the baseline receives;
+- whether the split and preprocessing match;
+- what was modified, if anything;
+- what limitation affects interpretation.
+
+Do not rederive GEARS, BioLORD, Scouter, scPRAM, CMonge, SCALE, or other
+baseline internals unless the manuscript modifies those internals.
 
 ## TriShift-Specific Methods Rules
 
@@ -84,6 +130,23 @@ We therefore formulate [task] as [modeling form]. Formally, let [symbols] denote
 - State the evaluation-time rule: held-out control references can be used as
   prediction origins but target perturbed cells cannot leak into training or
   model selection.
+
+TriShift Problem Formulation should normally define only:
+
+```text
+X^0 = {x_i^0}_{i=1}^{n_0}, x_i^0 in R^G
+Y = {y_j}_{j=1}^{n_1}, y_j in R^G
+p, e(p)
+\hat y_{m,p} = F_theta(x_m^0, e(p))
+```
+
+It must also state that `x_m^0` is a selected reference control state, not the
+factual pre-perturbation counterpart of any measured perturbed cell.
+
+Move latent variables, OT couplings, Sinkhorn objectives, perturbation-shift
+vectors, prior-source details, split definitions, Systema formulas,
+hyperparameters, and baseline internals to their own module, Experiments, or
+Appendix sections.
 
 ## Loss And Objective Guidance
 
@@ -102,6 +165,9 @@ insufficient.
 
 - Beginning Methods with "Module 1".
 - Describing formulas before defining symbols.
+- Defining every implementation or module-local variable in Problem
+  Formulation.
+- Explaining standard layers or optimizers as if they were contributions.
 - Saying OT matches true cells.
 - Mixing implementation details with conceptual rationale in one long sentence.
 - Hiding train/eval reference differences.

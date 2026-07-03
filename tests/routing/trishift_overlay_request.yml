@@ -1,0 +1,10 @@
+input: "Improve the TriShift PBMC IFNB1 Results paragraph and keep held-out-control distinct from target-domain-control."
+expected_route:
+  - perturbation-results
+  - trishift-writing-core
+  - perturbation-reviewer
+expected_flags:
+  - IFNB1
+  - PBMC
+  - held_out_control
+  - target_domain_control

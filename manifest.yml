@@ -1,0 +1,208 @@
+version: 0.2.0
+description: Modular writing and reviewer skills for single-cell perturbation prediction manuscripts.
+
+skills:
+  perturbation-writing-do:
+    role: router
+    routes:
+      - broad manuscript requests
+      - section inference
+      - venue adaptation
+      - review and patch workflows
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-writing-style
+      - perturbation-writing-sync
+      - perturbation-reviewer
+    output_mode:
+      - quiet_by_default
+      - debug_routing_on_request
+
+  perturbation-prediction-writing:
+    role: legacy_alias
+    delegates_to:
+      - perturbation-writing-do
+
+  perturbation-writing-core:
+    role: shared_domain_core
+    requires: []
+    must_not_include:
+      - project_specific_claims
+
+  trishift-writing-core:
+    role: project_overlay
+    activates_on:
+      - TriShift
+      - reference-conditioned
+      - held-out-control
+      - target-domain-control
+      - PBMC
+      - IFNB1
+      - Systema
+      - Overlap@20
+
+  perturbation-writing-corpus-guide:
+    role: corpus_style_and_structure
+    references:
+      - references/latest-corpus-writing-guide.md
+      - references/paper-imitation-guide.md
+
+  perturbation-abstract:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-writing-style
+      - perturbation-reviewer
+    routes:
+      - abstract
+      - structured abstract
+      - summary
+
+  perturbation-introduction:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-writing-style
+      - perturbation-reviewer
+    routes:
+      - introduction
+      - motivation
+      - central gap
+      - contributions
+
+  perturbation-related-work:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-reviewer
+    routes:
+      - related work
+      - background
+      - prior work
+      - positioning
+
+  perturbation-methods:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-reviewer
+    references:
+      - references/method-variable-scope.md
+    routes:
+      - methods
+      - problem formulation
+      - notation
+      - objective
+      - training
+      - inference
+
+  perturbation-experiments:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-reviewer
+    references:
+      - references/metric-cards.md
+    routes:
+      - experiments
+      - datasets
+      - splits
+      - baselines
+      - metrics
+
+  perturbation-results:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-reviewer
+    references:
+      - references/metric-cards.md
+      - references/claim-ledger-template.md
+    routes:
+      - results
+      - ablation
+      - robustness
+      - biological interpretation
+
+  perturbation-discussion:
+    role: section
+    requires:
+      - perturbation-writing-core
+      - perturbation-writing-corpus-guide
+    optional:
+      - trishift-writing-core
+      - perturbation-reviewer
+    references:
+      - references/claim-ledger-template.md
+    routes:
+      - discussion
+      - limitations
+      - conclusion
+      - future work
+
+  perturbation-supplement-captions:
+    role: section
+    requires:
+      - perturbation-writing-core
+    optional:
+      - trishift-writing-core
+      - perturbation-writing-sync
+      - perturbation-reviewer
+    routes:
+      - supplement
+      - captions
+      - figure legends
+      - provenance
+
+  perturbation-writing-style:
+    role: style_pass
+    requires:
+      - perturbation-writing-core
+    must_run_after:
+      - section_story_logic
+
+  perturbation-writing-sync:
+    role: synchronization
+    requires:
+      - perturbation-writing-core
+    optional:
+      - trishift-writing-core
+    references:
+      - references/claim-ledger-template.md
+
+  perturbation-reviewer:
+    role: integrated_reviewer
+    requires:
+      - perturbation-writing-core
+    optional:
+      - trishift-writing-core
+    references:
+      - references/method-variable-scope.md
+      - references/metric-cards.md
+      - references/claim-ledger-template.md
+    output_mode:
+      - severity_ranked
+      - patch_plan
+    must_run_after:
+      - manuscript_edit

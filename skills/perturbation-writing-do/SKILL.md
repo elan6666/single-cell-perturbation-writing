@@ -35,7 +35,8 @@ Run the manuscript work like a focused editorial system:
 - Venue aware: journal and conference papers compress and order evidence
   differently.
 - Reviewer driven: after edits, run one integrated reviewer gate.
-- Sync disciplined: TriShift-style CN -> EN -> Supplement order is preserved.
+- Overlay disciplined: load project-specific overlays such as
+  `trishift-writing-core` only when the text or request requires them.
 
 ## Required Preflight
 
@@ -66,7 +67,10 @@ Run the manuscript work like a focused editorial system:
    - fix reviewer findings.
 5. Load `perturbation-writing-core` and
    `perturbation-writing-corpus-guide` for all non-trivial tasks.
-6. Route to the smallest set of section skills that covers the request.
+6. Load `trishift-writing-core` only if the request or text contains TriShift
+   markers such as TriShift, reference-conditioned, held-out-control, PBMC,
+   IFNB1, Systema, reference-centered, centroid-centered, or `Overlap@20`.
+7. Route to the smallest set of section skills that covers the request.
 
 ## Routing Table
 
@@ -187,7 +191,16 @@ consistency, and reviewer resolution.
 
 ## Execution Contract
 
-When this skill routes a task, state:
+Default to quiet routing. In normal writing or review tasks, use one concise
+sentence such as:
+
+```text
+I will handle this as Methods + reviewer gate, focusing on notation,
+train/eval policy, and OT claim boundaries.
+```
+
+Only print the full routing block when the user asks for routing details,
+debugging, a plan, or a handoff:
 
 ```text
 Routing:
@@ -221,7 +234,7 @@ If the user says "continue" or "next" and no section is named:
 
 ## Default Source-Of-Truth Policy
 
-For TriShift manuscript work:
+For TriShift manuscript work, after loading `trishift-writing-core`:
 
 1. Chinese manuscript controls claim order, terminology, caveats, figure
    interpretation, and teacher-preferred story.

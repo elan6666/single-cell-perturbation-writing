@@ -24,6 +24,17 @@ Prioritize:
 Findings should be ordered by severity and grounded in concrete text, section,
 paragraph, figure, metric, symbol, or line references where available.
 
+## Reviewer Modes
+
+Use `diagnose-only` when the user asks for review without edits.
+
+Use `diagnose-and-patch` when the user asks to fix issues after review. In this
+mode, produce a required patch plan before editing.
+
+Use `final-pre-submission` when the manuscript is close to delivery. In this
+mode, be stricter about claim scope, synchronization, venue constraints,
+captions, references, and formatting-adjacent risks.
+
 ## Severity Levels
 
 CRITICAL:
@@ -71,6 +82,10 @@ Story-chain compliance:
 Notation rigor:
 
 - vectors before scalar components;
+- Problem Formulation defines task-critical variables only;
+- module-local variables are defined inside their module sections;
+- hyperparameters, splits, preprocessing, and baseline internals are not mixed
+  into task notation;
 - dimensions and indices before matrix entries;
 - distributions and coupling sets before OT objectives;
 - no ambiguous symbols such as `z_mu`;
@@ -122,8 +137,31 @@ Language maturity:
 
 Required fixes:
 Suggested fixes:
+Patch plan:
 Verification needed:
 ```
 
 If no blocking issues are found, say so clearly and list remaining residual
 risks or test gaps.
+
+## Patch Plan Requirements
+
+For every CRITICAL or MAJOR issue, the patch plan should name:
+
+1. the section or paragraph to change;
+2. the exact scientific function to restore;
+3. the evidence object that must be inserted or scoped;
+4. synchronization targets such as Abstract, Results, Discussion, caption, or
+   Supplement;
+5. verification needed after patching.
+
+Example:
+
+```text
+Patch plan:
+1. Rewrite Methods paragraph 2 to define the OT coupling as soft reference
+   weights, not biological pairs.
+2. Move Wasserstein direction before the main Results comparison.
+3. Replace broad IFNB1 cytokine wording in Discussion with PBMC-specific scope.
+4. Update the matching caption and claim ledger entry.
+```

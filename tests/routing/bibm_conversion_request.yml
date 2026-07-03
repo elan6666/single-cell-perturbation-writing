@@ -1,0 +1,10 @@
+input: "Convert this manuscript to BIBM style."
+expected_route:
+  - perturbation-writing-do
+  - perturbation-writing-core
+  - perturbation-writing-corpus-guide
+  - perturbation-reviewer
+expected_flags:
+  - venue
+  - conference
+  - contribution_style

@@ -6,6 +6,7 @@ description: Write or review experiment setup sections for perturbation-predicti
 # Perturbation Experiments
 
 Use after `perturbation-writing-core` and `perturbation-writing-corpus-guide`.
+When metrics are central to the task, also consult `references/metric-cards.md`.
 
 ## Experiments Job
 

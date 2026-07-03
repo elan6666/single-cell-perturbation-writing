@@ -6,6 +6,8 @@ description: Synchronize Chinese, English, and Supplement text for perturbation-
 # Perturbation Writing Sync
 
 Use after any manuscript edit that changes scientific content.
+For recurring or high-risk claims, maintain a claim ledger using
+`references/claim-ledger-template.md`.
 
 ## Source-Of-Truth Policy
 

@@ -1,6 +1,6 @@
 ---
 name: perturbation-writing-core
-description: Core domain rules for perturbation-prediction manuscript writing. Use with all perturbation-prediction section skills to enforce story logic, claim boundaries, TriShift terminology, notation invariants, evidence limits, and reviewer-safe scientific framing.
+description: Core domain rules for perturbation-prediction manuscript writing. Use with all perturbation-prediction section skills to enforce general story logic, notation invariants, evidence limits, venue-aware defaults, and reviewer-safe scientific framing.
 ---
 
 # Perturbation Writing Core
@@ -50,32 +50,7 @@ Good gap types:
 - Metric gap: endpoint accuracy, response-gene identity, residualized signal,
   and distributional fidelity can disagree.
 
-For TriShift, the central gap is normally:
-
-```text
-Unseen perturbation prediction requires both a perturbation-specific shift and a
-state-compatible reference origin; perturbation identity alone does not choose
-the control state from which prediction should start.
-```
-
-## TriShift Domain Contract
-
-Use these defaults unless the current manuscript evidence says otherwise:
-
-- TriShift is a reference-conditioned state-transition framework.
-- The prediction is reference-relative, not direct endpoint regression.
-- State-compatible references are prediction origins or supervision candidates.
-- OT constructs soft state-compatible reference weights; it does not recover
-  true biological cell pairs.
-- External perturbation priors help unseen perturbation representation, but do
-  not by themselves define the starting control state.
-- Held-out-control genetic prediction and PBMC target-domain-control transfer
-  are related but not interchangeable.
-- PBMC IFN-beta evidence supports IFNB1/PBMC transfer only; do not generalize to
-  all cytokines, proteins, immune contexts, or drug classes.
-- Systema-style metrics, reference-centered metrics, centroid-centered metrics,
-  response-gene overlap, and distributional metrics test different failure
-  modes and should not be collapsed into a single "accuracy" claim.
+If the manuscript is TriShift-specific, also load `trishift-writing-core`.
 
 ## Non-Negotiable Notation Rules
 

@@ -391,3 +391,31 @@ Conference style:
    robustness/scaling, and biological or distributional interpretation.
 4. Keep language restrained but strong.
 5. Make each paragraph perform one function.
+
+## Anti-Template Rules
+
+Before using any template, instantiate the evidence object inventory:
+
+- dataset;
+- split;
+- held-out object;
+- metric;
+- metric direction;
+- strongest baseline;
+- numerical anchor, if available;
+- mechanism interpretation;
+- boundary.
+
+Do not deliver prose that still contains placeholders such as `[METHOD]`,
+`[dataset]`, `[metric]`, or `[baseline]`.
+
+Do not write "substantially outperforms", "consistently improves", or
+"generalizes to unseen perturbations" unless the tested setting, comparison,
+and evidence strength are visible.
+
+If a numerical anchor is unavailable, use a scoped qualitative claim:
+
+```text
+The comparison is consistent with improved [behavior] in [setting], but the
+claim should remain qualitative until numerical anchors are inserted.
+```

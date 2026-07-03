@@ -6,7 +6,9 @@ description: Write, rewrite, or review Results sections for perturbation-predict
 # Perturbation Results
 
 Use after `perturbation-writing-core`, `perturbation-writing-corpus-guide`, and
-when needed `perturbation-experiments`.
+when needed `perturbation-experiments`. For metric-heavy writing, consult
+`references/metric-cards.md`; for claim-strength consistency, consult
+`references/claim-ledger-template.md`.
 
 ## Results Job
 

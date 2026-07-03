@@ -1,0 +1,10 @@
+input: "Rewrite Methods and check formula rigor."
+expected_route:
+  - perturbation-methods
+  - perturbation-reviewer
+must_not_route:
+  - perturbation-results
+expected_flags:
+  - notation
+  - train_eval_policy
+  - OT_interpretation
