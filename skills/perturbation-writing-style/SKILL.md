@@ -16,7 +16,7 @@ The prose should read as a progressive scientific argument:
 - problem-driven;
 - mechanism-aware;
 - evidence-bound;
-- cautious in extrapolation;
+- confident without being reckless;
 - natural in English or Chinese;
 - free of oral explanation and translation artifacts.
 
@@ -31,16 +31,48 @@ For each paragraph:
 3. Remove panel-list narration unless the sentence's job is explicitly to guide
    a figure.
 4. Replace vague strength words with metric- or behavior-specific claims.
-5. Use cautious verbs when evidence is indirect.
+5. Use confident, evidence-grounded verbs for supported advantages; reserve
+   cautious verbs for genuinely indirect or narrow evidence.
 6. Preserve notation, split definitions, metric direction, caveats, and figure
    references.
 7. Check that the paragraph ends by interpreting evidence or handing off to the
    next question, not by trailing into a list.
 
+## Advantage-Forward Tone
+
+Do not make every result sound defensive. Once the manuscript has stated the
+tested setting and metric, write the advantage naturally and directly.
+
+Good:
+
+```text
+TriShift achieves the strongest Overlap@20 on Norman, showing that its gains
+extend to recovery of response-gene identity.
+```
+
+Overly defensive:
+
+```text
+TriShift achieves the strongest Overlap@20 on Norman, although this should be
+interpreted only as directionally consistent evidence rather than a strong
+ranking conclusion.
+```
+
+Use boundaries sparingly:
+
+- when the evidence type cannot support the claim;
+- when a setting is genuinely narrow, such as IFNB1/PBMC;
+- when a visualization is diagnostic rather than quantitative;
+- when train/test policy or leakage could be misunderstood.
+
+Do not add a boundary sentence after every advantage. Put routine caveats in a
+short final boundary sentence, caption note, or Discussion paragraph.
+
 ## Preferred Scientific Verbs
 
 Use:
 
+- improves, recovers, preserves, extends, strengthens, captures, aligns;
 - evaluates, quantifies, supports, indicates, suggests, is consistent with;
 - constructs, estimates, conditions on, aligns, preserves, captures, mitigates;
 - benchmarks, validates, instantiates, formulates, generalizes, integrates.
@@ -96,6 +128,21 @@ response prediction; broader cytokine or protein-prior generalization remains
 outside the current evidence.
 ```
 
+Overly defensive:
+
+```text
+Adamson and Norman show smaller differences and should be viewed as
+directionally consistent rather than as strong ranking conclusions.
+```
+
+More natural:
+
+```text
+Across Adamson and Norman, the same trend supports TriShift's advantage in
+recovering perturbation-specific response structure, with the clearest
+separation observed in [setting/metric].
+```
+
 ## Chinese Style Rules
 
 - Avoid literal English-to-Chinese ordering that delays the subject or predicate.
@@ -120,6 +167,8 @@ outside the current evidence.
 - Does the first sentence explain why the paragraph exists?
 - Are results interpreted as model behavior rather than generic superiority?
 - Are visual claims bounded as diagnostic?
+- Are supported advantages stated directly before limitations are introduced?
+- Are routine caveats consolidated instead of repeated after every result?
 - Are broad application claims supported by actual experiments?
 - Are translation-like and oral phrases removed?
 - Are symbols, metrics, and caveats preserved?

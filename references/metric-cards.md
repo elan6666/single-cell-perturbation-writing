@@ -60,6 +60,7 @@ Use when:
 
 - evaluating recovery of perturbation-responsive genes;
 - checking whether the predicted response identifies relevant gene changes.
+- connecting expression prediction to downstream mechanism interpretation.
 
 Measures:
 
@@ -80,6 +81,39 @@ Required wording:
 - "Overlap@20 measures whether the top predicted response genes recover the
   observed top response genes; higher values indicate stronger response-gene
   identity recovery."
+
+Results interpretation:
+
+- Do not present response-gene overlap as a small auxiliary metric when it is
+  central to the claim. Use it to state an advantage: recovery of response-gene
+  identity, not only response-vector alignment.
+- A strong Results paragraph should explain why response-gene recovery matters:
+  it links prediction to perturbation-associated genes and downstream
+  biological interpretation.
+- When evidence exists, extend the metric with top-gene expression statistics,
+  single-gene distribution examples, and pathway enrichment. These are
+  interpretive supports, not replacements for the primary overlap metric.
+
+CommonDEG@k / Overlap@k definition pattern:
+
+```text
+Overlap@k = |TopK_true_response_genes intersect TopK_pred_response_genes|
+```
+
+Where `TopK_true_response_genes` is derived from observed perturbed versus
+control response and `TopK_pred_response_genes` is derived from predicted
+response under the same exclusion and ranking rules.
+
+Required advantage wording:
+
+- "This result indicates that the method's advantage extends from aggregate
+  response alignment to recovery of response-gene identity."
+
+Boundary:
+
+- If the metric is computed from response magnitude rather than a formal DEG
+  test, do not call it a DEG test. Use "response-gene identity recovery" unless
+  true differential-expression testing was performed.
 
 ## Wasserstein Distance
 

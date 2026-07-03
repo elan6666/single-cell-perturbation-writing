@@ -97,6 +97,9 @@ Results evidence:
 - metric direction is defined;
 - strongest relevant baseline is used;
 - numerical anchors are sparse but specific;
+- important metrics are interpreted as model advantages, not merely listed;
+- response-gene recovery metrics explain why gene-identity recovery matters for
+  mechanism interpretation;
 - visualizations are diagnostic, not proof;
 - mixed metric behavior is explained rather than hidden.
 
@@ -115,7 +118,8 @@ Language maturity:
 - no translation-like sentence order;
 - no panel-list narration unless a caption requires it;
 - no vague "better/good/perfect" claims;
-- cautious verbs used for indirect evidence.
+- supported advantages are stated directly rather than overqualified;
+- cautious verbs used for genuinely indirect evidence.
 
 ## Output Format
 

@@ -9,8 +9,9 @@ Use after `perturbation-writing-core` and `perturbation-writing-corpus-guide`.
 
 ## Discussion Job
 
-Discussion explains what the evidence means and where it stops. It should not
-introduce new results, hide limitations, or repeat the Results section.
+Discussion explains what the evidence means, why the method works, and where
+the strongest advantages sit. It should not introduce new results, hide
+limitations, or repeat the Results section.
 
 ## Required Chain
 
@@ -26,7 +27,8 @@ introduce new results, hide limitations, or repeat the Results section.
    - OT/distributional methods;
    - foundation models or flow/set methods where relevant.
 4. Boundary conditions:
-   - name where evidence does not yet extend.
+   - name where evidence does not yet extend without weakening the main
+     contribution paragraph.
 5. Future directions:
    - concrete extensions that follow from limitations.
 
@@ -47,10 +49,18 @@ State these when relevant:
   distributional fidelity can favor different behavior and should be interpreted
   together.
 
+Do not scatter all boundaries throughout the Discussion. Lead with the
+contribution and advantage, then consolidate limitations into a dedicated
+boundary paragraph.
+
 ## Useful Discussion Moves
 
 - "We introduce [method], a [framework] for [task]."
 - "Our results indicate that [principle] is important for [capability]."
+- "Together, these findings show that [method] improves [capability] by
+  [mechanism]."
+- "The gains are most visible in [setting/metric], where [method] recovers
+  [advantage]."
 - "The effectiveness likely stems from the interplay of [factor A], [factor B],
   and [factor C]."
 - "Beyond endpoint accuracy, [method] supports [biological/application
@@ -75,5 +85,7 @@ Do not compress away limitations if the manuscript makes broad claims.
 - Introducing new numerical results.
 - Claiming clinical, drug-discovery, cytokine, or virtual-cell generality beyond
   evidence.
+- Diluting every advantage with a local caveat before the reader understands
+  the contribution.
 - Saying "future work will solve" without naming a concrete direction.
 - Repeating every figure result instead of synthesizing mechanisms.

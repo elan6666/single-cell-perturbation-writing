@@ -351,6 +351,26 @@ explanation]. Qualitative analysis using [UMAP/pathway/DEG] further confirmed
 that [METHOD] captures [biological property].
 ```
 
+Metric-to-advantage paragraph:
+
+```text
+[Metric] evaluates [capability], which matters because [scientific or modeling
+reason]. In [setting], [METHOD] improves over [strongest baseline], suggesting
+that [mechanistic or biological interpretation]. We use [secondary evidence]
+only as interpretive support for this primary comparison.
+```
+
+Response-gene recovery paragraph:
+
+```text
+Response-gene identity recovery links predicted expression changes to
+perturbation-associated genes and downstream interpretation. [Overlap metric]
+compares the strongest observed and predicted response-gene sets under the same
+ranking and exclusion rules. Higher overlap for [METHOD] indicates that its
+advantage extends beyond aggregate response alignment to recovery of key
+response genes.
+```
+
 Discussion:
 
 ```text
