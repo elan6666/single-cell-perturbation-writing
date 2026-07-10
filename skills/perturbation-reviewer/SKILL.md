@@ -102,6 +102,9 @@ Results evidence:
   mechanism interpretation;
 - visualizations are diagnostic, not proof;
 - mixed metric behavior is explained rather than hidden.
+- a simple matched baseline is included or its omission is justified;
+- shared stress, cell-cycle, selection, batch, or average-effect variation is
+  tested or bounded before interpreting performance as perturbation-specific.
 
 TriShift boundaries:
 
@@ -111,6 +114,25 @@ TriShift boundaries:
 - IFNB1/PBMC protein/cytokine claims are not broadened;
 - Systema, reference-centered, centroid-centered, response-gene, and
   distributional metrics are named consistently.
+
+Drug-Perturbation Gate, when applicable:
+
+- drug identity, salt/formulation, vehicle, dose unit, and exposure time are
+  sufficient to reproduce the stated condition;
+- unseen-drug claims use an exposure-level split and disclose scaffold, MoA,
+  dose/time, donor, and batch leakage risks;
+- models receive comparable drug information and representation pretraining
+  does not silently expose test identities;
+- viability, stress, cell-cycle, apoptosis, and composition confounds are
+  assessed or bounded when relevant;
+- combination claims name the endpoint and additivity null; raw effects are not
+  mislabeled as synergy;
+- target/pathway agreement is not presented as direct target engagement or
+  causality without evidence;
+- in-vitro response, prioritization, mechanism hypothesis, and clinical claims
+  remain on distinct evidence levels;
+- the Results section follows the Drug-Perturbation Evidence Ladder or gives a
+  reasoned venue-specific compression of it.
 
 Language maturity:
 

@@ -79,6 +79,12 @@ For manuscript or supplement figure notes, record:
 - generated figure/table artifact path where appropriate;
 - known caveats.
 
+For drug figures and tables, also record canonical compound identifiers,
+salt/formulation and vehicle, dose units, exposure time, combination ratios,
+plate/donor/replicate allocation, split key, and metric aggregation unit. A
+caption that uses "synergy", "mechanism", or "therapeutic" must define the
+underlying endpoint and retain its evidence boundary.
+
 ## Avoid
 
 - Captions that merely repeat "A, B, C show".

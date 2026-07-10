@@ -53,6 +53,15 @@ Do not scatter all boundaries throughout the Discussion. Lead with the
 contribution and advantage, then consolidate limitations into a dedicated
 boundary paragraph.
 
+## Drug-Perturbation Boundaries
+
+Separate observed in-vitro response, model-based candidate prioritization,
+mechanism hypothesis, and clinical utility. State which level the data support.
+Cell-line, organoid, or ex-vivo evidence does not establish patient benefit,
+safe dose, PK/PD, selectivity, or clinical efficacy. Name untested doses,
+times, donors, drug classes, combinations, and toxicity contexts instead of
+treating a narrow transcriptional benchmark as general pharmacology.
+
 ## Useful Discussion Moves
 
 - "We introduce [method], a [framework] for [task]."

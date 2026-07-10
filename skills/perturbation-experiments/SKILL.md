@@ -97,3 +97,18 @@ transfer.
 - Are hyperparameters selected without test leakage?
 - Are datasets and preprocessing named precisely?
 - Are missing baselines explained rather than ignored?
+- Could a no-effect, mean-response, or matched nonparametric baseline exploit
+  shared systematic variation under this split?
+- Is the statistical unit matched to the claim rather than inflated by cells
+  from the same exposure, donor, or plate?
+
+## Drug-Perturbation Experiment Contract
+
+Report canonical drug identity, salt/formulation, vehicle, dose unit/range,
+exposure time, replicate/plate/batch policy, and the count of unique exposure
+conditions. State whether the split holds out drug, scaffold, target/MoA, dose,
+time, combination, donor, cell model, or dataset; random cell splits do not
+justify unseen-drug generalization. Assess viability, cell-cycle, apoptosis, and
+composition shifts when they can explain a response. For combinations, state
+the endpoint and Bliss, Loewe, HSA, ZIP, or other declared null before using
+"synergy".

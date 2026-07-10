@@ -16,6 +16,10 @@ The full latest source guide is preserved at
 When a task asks for deep imitation, sentence libraries, or conference-vs-journal
 style transfer, read that reference together with this skill.
 
+When outlining, restructuring, or auditing Abstract through Discussion, also
+read `references/section-story-cards.md`. Use its source-grounded patterns to
+choose a story sequence, not to copy paper wording.
+
 Use it to make paragraphs function like strong papers: each paragraph should
 have one job, a clear opening move, evidence or mechanism, interpretation, and
 bounded handoff.

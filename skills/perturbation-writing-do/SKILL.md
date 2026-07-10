@@ -37,14 +37,19 @@ Run the manuscript work like a focused editorial system:
 - Reviewer driven: after edits, run one integrated reviewer gate.
 - Overlay disciplined: load project-specific overlays such as
   `trishift-writing-core` only when the text or request requires them.
+- Drug disciplined: load `perturbation-drug-writing-core` whenever an exposure
+  involves a compound, biologic, dose/time program, or drug combination.
 
 ## Required Preflight
 
 1. Identify explicit skill mentions. If the user names a specific
    perturbation-writing skill, use that skill.
-2. Identify target venue if present: Bioinformatics, Nature-style journal,
+2. Identify perturbation modality: genetic, drug, multimodal, cytokine/protein,
+   or unknown. For drug work, load `perturbation-drug-writing-core` after the
+   shared core and complete its Drug Study Card before scientific drafting.
+3. Identify target venue if present: Bioinformatics, Nature-style journal,
    BIBM, IEEE, ICLR/ML conference, supplement, response letter, or unknown.
-3. Identify manuscript section:
+4. Identify manuscript section:
    - abstract;
    - introduction;
    - related work or background;
@@ -54,7 +59,7 @@ Run the manuscript work like a focused editorial system:
    - discussion, limitations, conclusion;
    - supplement, caption, provenance;
    - whole manuscript.
-4. Identify operation:
+5. Identify operation:
    - draft from notes;
    - rewrite;
    - compress for venue;
@@ -65,12 +70,15 @@ Run the manuscript work like a focused editorial system:
    - synchronize CN/EN/Supp;
    - adapt venue;
    - fix reviewer findings.
-5. Load `perturbation-writing-core` and
+6. Load `perturbation-writing-core` and
    `perturbation-writing-corpus-guide` for all non-trivial tasks.
-6. Load `trishift-writing-core` only if the request or text contains TriShift
+7. Load `trishift-writing-core` only if the request or text contains TriShift
    markers such as TriShift, reference-conditioned, held-out-control, PBMC,
    IFNB1, Systema, reference-centered, centroid-centered, or `Overlap@20`.
-7. Route to the smallest set of section skills that covers the request.
+8. When drafting or restructuring a whole section, load
+   `references/section-story-cards.md` and state the intended evidence ladder
+   before prose editing.
+9. Route to the smallest set of section skills that covers the request.
 
 ## Routing Table
 
@@ -90,6 +98,7 @@ Apply the first strong match:
 | sync, synchronize, Chinese-English, CN/EN, supplement consistency | `perturbation-writing-sync` |
 | style, academic, natural, translation-like, oral, journal tone | section skill + `perturbation-writing-style` |
 | review, referee, pre-submission, risk check | `perturbation-reviewer` |
+| drug, compound, small molecule, biologic, dose, time course, combination, synergy, MoA, toxicity, viability | `perturbation-drug-writing-core` + relevant section skill + `perturbation-reviewer` |
 | local papers, imitate, corpus, CMonge, Scouter, scPRAM, SCALE, scDFM | section skill + `perturbation-writing-corpus-guide` + `references/paper-imitation-guide.md` |
 
 If the section is unknown, inspect the provided text headings or ask one
@@ -147,18 +156,19 @@ comparison, behavior interpretation, and boundary transfer.
 For whole-manuscript work, use this order:
 
 1. `perturbation-writing-core`
-2. `perturbation-writing-corpus-guide`
-3. `perturbation-introduction`
-4. `perturbation-related-work` when the venue has a separate Related Work
-5. `perturbation-methods`
-6. `perturbation-experiments`
-7. `perturbation-results`
-8. `perturbation-discussion`
-9. `perturbation-abstract`
-10. `perturbation-supplement-captions`
-11. `perturbation-writing-style`
-12. `perturbation-writing-sync`
-13. `perturbation-reviewer`
+2. `perturbation-drug-writing-core` when the manuscript contains a drug exposure
+3. `perturbation-writing-corpus-guide`
+4. `perturbation-introduction`
+5. `perturbation-related-work` when the venue has a separate Related Work
+6. `perturbation-methods`
+7. `perturbation-experiments`
+8. `perturbation-results`
+9. `perturbation-discussion`
+10. `perturbation-abstract`
+11. `perturbation-supplement-captions`
+12. `perturbation-writing-style`
+13. `perturbation-writing-sync`
+14. `perturbation-reviewer`
 
 Abstract is late in whole-paper workflows because it should reflect the final
 evidence chain.

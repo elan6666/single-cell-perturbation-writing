@@ -14,6 +14,7 @@ skills:
       - perturbation-writing-corpus-guide
     optional:
       - trishift-writing-core
+      - perturbation-drug-writing-core
       - perturbation-writing-style
       - perturbation-writing-sync
       - perturbation-reviewer
@@ -44,11 +45,32 @@ skills:
       - Systema
       - Overlap@20
 
+  perturbation-drug-writing-core:
+    role: drug_domain_overlay
+    activates_on:
+      - drug
+      - compound
+      - small molecule
+      - biologic
+      - dose response
+      - time course
+      - drug combination
+      - synergy
+      - mechanism of action
+      - toxicity
+    references:
+      - references/drug-study-card.md
+      - references/drug-splits-and-leakage.md
+      - references/drug-metrics.md
+      - references/drug-claim-ledger.md
+      - references/drug-evidence-ladder.md
+
   perturbation-writing-corpus-guide:
     role: corpus_style_and_structure
     references:
       - references/latest-corpus-writing-guide.md
       - references/paper-imitation-guide.md
+      - references/section-story-cards.md
 
   perturbation-abstract:
     role: section

@@ -35,6 +35,16 @@ Use 1-2 paragraphs:
 
 Avoid "if the method works, then..." proof checklists.
 
+## Evidence Ladder Guard
+
+For a whole Results section, order evidence from task reality and a matched
+baseline to the claimed hard generalization, then mechanism/biology and failure
+analysis. A high score is insufficient if a no-effect, mean-response, or other
+simple matched baseline explains it. When screens contain shared pathway,
+stress, cell-cycle, or selection effects, test or explicitly bound systematic
+variation before calling a signal perturbation-specific. Read
+`references/section-story-cards.md` for the default six-block sequence.
+
 ## Subsection Story Chain
 
 Each Results subsection should contain:
@@ -199,6 +209,17 @@ Default TriShift evidence order:
 6. Cell-level distribution recovery.
 7. Supplementary distributions, robustness, additional cases, and latent-state
    diagnostics.
+
+## Drug-Perturbation Results Chain
+
+Separate response fidelity in the stated system, generalization along the
+held-out drug/scaffold/MoA/dose/time/context axis, biological consistency with
+target/pathway/responder-state evidence, and practical utility such as ranking.
+Show dose/time behavior rather than claiming it from a single exposure. Treat
+pathway agreement as mechanism-supporting rather than causal proof; test whether
+stress, viability, cell-cycle, or composition changes explain apparent gains.
+For combinations, evaluate against the named additivity null before claiming
+synergy.
 
 ## Avoid
 

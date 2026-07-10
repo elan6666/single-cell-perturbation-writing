@@ -161,6 +161,17 @@ For each objective term:
 Do not write "we add loss X" without explaining why a weaker objective is
 insufficient.
 
+## Drug-Perturbation Addendum
+
+For a drug exposure, define the condition as a tuple: compound identity,
+representation, dose, time, vehicle, and biological context. State which fields
+are available during training and inference, how dose/time are encoded, and
+whether a combination is ordered or set-valued. Distinguish chemical structure,
+target/MoA, text, and response-signature inputs; baselines need comparable
+information. Do not equate a transcriptional response with viability, efficacy,
+target engagement, or clinical response. Load `perturbation-drug-writing-core`
+for the full exposure and translation contract.
+
 ## Avoid
 
 - Beginning Methods with "Module 1".
